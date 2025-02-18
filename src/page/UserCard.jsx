@@ -1,43 +1,40 @@
-import Card from '../component/CardComponent';
-import { userData } from '../data/userData';
-import { useState } from 'react';
-
+import Card from "../component/CardComponent";
+import { userData } from "../data/userData";
+import { useState } from "react";
 
 function UserCard() {
+  const [value, setValue] = useState("");
 
-const [value, setValue] = useState('')
-
-const handleOnChange = (event) => {
-    // make value change everytime
+  // make value change everytime
+  const handleOnChange = (event) => {
     setValue(event.target.value);
   };
-  
+
+  // Filter data
   const fiterUser = userData.filter((item) => {
-    return item.userName.toLowerCase().includes(value.toLowerCase())
-  })
-  
+    return item.userName.toLowerCase().includes(value.toLowerCase());
+  });
+
+  // Map data
   const mapUser = fiterUser.map((item) => {
     return (
-      <Card 
-        key={item.userId} 
-        userId={item.userId} 
-        userName={item.userName}
-      />
-    )
-  })
-
+      <Card key={item.userId} userId={item.userId} userName={item.userName} />
+    );
+  });
 
   return (
     <>
-        <input 
-            onChange={handleOnChange} 
-            type="text" value={value} 
-            placeholder="Search" 
+      <div className="container">
+        <input
+          className="input"
+          onChange={handleOnChange}
+          type="text"
+          placeholder="Search"
         />
-
-     {mapUser}
+        <div className="card-container">{mapUser}</div>
+      </div>
     </>
-  )
+  );
 }
 
-export default UserCard
+export default UserCard;

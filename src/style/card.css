@@ -1,26 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 90%;
+  max-width: 800px;
+}
+
+.input {
+  width: 90%;
+  height: 40px;
+  border-radius: 20px;
+  padding-left: 10px;
+  border: 2px solid #ccc;
+  outline: none;
+  font-size: 16px;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+  gap: 20px;
+  width: 100%;
+}
+
 .card {
-    width: 250px;
-    padding: 16px;
-    border: 2px solid #ddd;
-    border-radius: 12px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
+  width: 200px;
+  background-color: #fff;
+  padding: 16px;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Responsive design */
+/* @media (max-width: 600px) {
+  .card-container {
+    grid-template-columns: 1fr; 
   }
-  
-  .card:hover {
-    transform: scale(1.05);
-  }
-  
-  .card h2 {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 8px;
-  }
-  
-  .card p {
-    font-size: 1rem;
-    color: #666;
-  }
-  
+} */
